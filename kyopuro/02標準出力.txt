@@ -1,0 +1,85 @@
+#.join
+#.joinは、() の中で指定された要素を　.　の前で指定されたもので区切る
+print(",".join(S))
+
+#for in　を数値だけじゃなくて文字列で回して使う　range使わない
+s = input().split()
+
+for i in s:
+    print(i, end=",")
+
+print()
+
+#10個の出力を　" | "　で区切って出力する
+#10回ループ
+for i in range(10):
+    #10回目だったらストップ
+    if i == 9:
+        print(input())
+    #10回目じゃなかったら続ける
+    else:
+        print(input(), end=" | ")
+
+
+#{Cランク相当}入力された文字列を3桁ごとにカンマを入れる
+n=input()
+#文字数を考えるのでrangeは入力の文字数,また一文字ずつループ
+for i in range(len(n)):
+#もしiが四回目=3桁の次だったら、また、0=最初だったら、
+    if i %3 == 0 and i!=0:
+    #カンマを加えて、改行なしの出力をして、
+        print(",",end="")
+    #そうじゃない時は、iの回数目のnを出力する
+    print(n[i], end="")
+#これは改行なし用
+print()
+
+#{Cランク相当}入力された文字列を3桁ごとにカンマを入れる(3の倍数とは限らない)
+N = input()
+#ここで余りになるものは格納
+x = len(N) % 3
+
+for i in range(len(N)):
+#もしiが余りから引かれたものので３の倍数の時、
+    if (i - x) % 3 == 0 and i != 0:
+        print(",", end="")
+
+    print(N[i], end="")
+
+print()
+
+
+#3 * 3 の出力
+#これがそのまま参考になった
+リストの要素 (N[i]) は毎回同様の出力をするので簡略して書き、出力する文字列の様子を{出力する値}のように書きます。
+i=0 : 半角スペースを改行無しで出力 {N[0] }
+i=1 : 半角スペースを改行無しで出力 (N[0] N[1] )
+i=2 : 改行する {N[0] N[1] N[2] (改行)}
+i=3 : 半角スペースを改行無しで出力 {N[0] N[1] N[2] (改行) N[3] }
+( 以下同様に出力する )
+N = input().split()
+
+for i in range(len(N)):
+    print(N[i], end="")
+    if i % 3 == 2:
+        print()
+    else:
+        print(" ", end="")
+
+#二重ループ
+for i in range(1, 10):
+    for j in range(1, 10):
+        if j == 9:
+            print(i * j)
+        else:
+            print(i * j, end=" ")
+
+#N*Nの出力
+N = int(input())
+
+for i in range(1, N + 1):
+    for j in range(1, N + 1):
+        if j == N:
+            print(i * j)
+        else:
+            print(i * j, end=" ")

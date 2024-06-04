@@ -1,0 +1,113 @@
+Python3 目標7月までにBランク
+#while文
+    i = 1# カウンタ変数を初期化
+while i <= 10:
+    print(i)# 繰り返し処理
+    i = i + 1# カウンタ変数を更新
+
+#行末の改行の削除
+line = input().rstrip()
+
+# ユーザーからの入力をリストとして取得
+s = list(map(str, input().rstrip())) 
+# リストの長さ分ループを実行
+for i in range(len(s)): 
+ # 各要素を出力
+    print(s[i]) 
+
+#a,bに分割して入力
+a, b = s.split(" ")
+
+入力が長い時、sのリストの数でfor文を回してiを出力
+#リストの部分の解説
+s.split(" ") は、["one", "two", "three", "four", "five"] として扱われます。
+s = "one two three four five"
+for i in s.split(" "):
+    print(i)
+
+#半角スペースの一文の入力を半角スペースで区切る
+s = input().split(" ")
+#for文で、10回sのリストを出力するが、iがその回数なので、[i]とすることで、リストの番号を指定して出力できる
+for i in range(10):
+    print(s[i])
+
+#空のリストを作る
+a = []
+#五回の間で、a_iに数字を入力する
+for i in range(5):
+    a_i = int(input())
+#空のリストaにappendする　.append()はリストに()の中身を入れる
+    a.append(a_i)
+#五回,iの番号を指定して出力
+for i in range(5):
+    print(a[i])
+
+
+#半角スペース区切りの入力をmap関数で一つずつ、リスト関数によってリストに入れていく
+#これによって出力の時にインデックスを指定して出力できる
+i= list(map(int,input().split(" ")))
+for s in range(5):
+#インデックスを指定して出力
+    print(i[s])
+
+#最初の行に数字が与えれる、その数字の回数入出力
+N = int(input())
+#空のリスト
+a = []
+#Nの回数aに入力を入れる
+for i in range(N):
+    a_i = int(input())
+    a.append(a_i)
+#インデックスを指定して出力
+for i in range(N):
+    print(a[i])
+
+#リストで半角スペース区切りの入力を受け取る
+#↑この時、受け取るのが整数か文字列か注意する！！
+N_and_a = list(map(int, input().split(" ")))
+#先頭が回数になるので、先頭だけを取り出す
+N = N_and_a[0]
+##それ以外をリストに収める　[:]はそれ以降のリストを表す
+a = N_and_a[1:]
+#先頭のNの回数、インデックスを指定して出力
+for i in range(N):
+    print(a[i])
+
+#一行目には整数、以降は半角スペースで区切られた整数二組
+N = int(input())
+#整数それぞれを格納する空リスト
+a = []
+b = []
+#Nの回数だけ半角スペースで分けてそれぞれ格納
+for i in range(N):
+    a_i, b_i = map(int, input().split())
+#リストにappendして入れる
+    a.append(a_i)
+    b.append(b_i)
+#インデックスを指定して出力
+print(a[7], b[7])
+
+#3行の各行にそれぞれ半角スペースで整数が入力される
+#空リストを作る
+a = []
+for i in range(3):
+#整数を半角スペースで区切って、mapでそれぞれリスト化する
+    a_i = list(map(int, input().split()))
+#リストの内容をaの空のリストに入れる
+# [[整数の各要素],[],,, ]←こういうイメージかな
+    a.append(a_i)
+#インデックスを指定して出力
+for i in range(3):
+#先頭に * をつけることでリストの要素を半角スペースで区切った文字列になる
+    print(*a[i])
+
+#N行の入力があり先頭の要素が消えて出力される
+N = int(input())
+a = []
+for i in range(N):
+    M_and_a_i = list(map(int, input().split()))
+    #appendするときに、要素[1:] とすれば二つ目の要素からの全てのみがappendされる
+    a.append(M_and_a_i[1:])
+
+for i in range(N):
+    print(*a[i])
