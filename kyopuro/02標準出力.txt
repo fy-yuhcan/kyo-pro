@@ -83,3 +83,83 @@ for i in range(1, N + 1):
             print(i * j)
         else:
             print(i * j, end=" ")
+
+
+#N//2の時改行
+N = int(input())
+
+for i in range(1, N + 1):
+ここでN//2の余りが0の時、としているので割り切れるときの数のみ改行することになる
+    if i % (N // 2) == 0:
+        print(i)
+    else:
+        print(i, end=" ")
+
+
+#すべての行の長さが不定な 2 次元配列の出力 
+n = int(input())  # 入力: 要素の数
+m = list(map(int, input().split()))  # 入力: スペース区切りの整数をリストに変換
+
+for i in range(n):  # 外側のループ: 各要素に対して処理を行う
+    for t in range(1, m[i] + 1):  # 内側のループ: 1からm[i]までの数を出力
+        if t == m[i]:
+            print(t)
+        else:
+            print(t, end=" ")
+    print()  # 各 m[i] の処理後に改行を追加
+外側のループ (i) の最初の反復では、i = 0 で m[0] = 2 です。
+
+内側のループ (t) では、1 2 と出力されます。
+次の反復では、i = 1 で m[1] = 3 です。
+
+内側のループ (t) では、1 2 3 と出力されます。
+最後の反復では、i = 2 で m[2] = 4 です。
+
+内側のループ (t) では、1 2 3 4 と出力されます。
+#ループで,m[t]ではなく、m[i]を使うのはiがそのときのmのリストの数を保有しているから
+
+#{復習必須！！！！！}【行によって長さが違う二次元配列の表示】すべての行の長さと値が不定な 2 次元配列の出力
+values = input().split()
+N = int(values[0])
+M = int(values[1])
+
+A = [0] * N
+values = input().split()
+for i in range(N):
+    A[i] = int(values[i])
+
+B = [0] * M
+values = input().split()
+for i in range(M):
+    B[i] = int(values[i])
+
+head = 0
+for i in B:
+    for j in range(i):
+        if j == i - 1:
+            print(A[head])
+        else:
+            print(A[head], end=" ")
+
+        head += 1
+##############復讐する！！！！################
+#多分この方がわかりやすい
+Aの数列をBの区間で区切るという考え方
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+始点から終点までを一つの区間として考えれば区切れる
+begin = 0
+for i in range(M):
+    length = B[i]
+    #終点は始まりからBの区間から-1
+    end = begin + length - 1
+    
+    for j in range(begin, end + 1):
+        if j == end:
+            print(A[j])
+        else:
+            print(A[j], end=" ")
+    
+    begin = end + 1
