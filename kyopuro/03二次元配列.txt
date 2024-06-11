@@ -1,0 +1,27 @@
+#二次元配列
+n, k = map(int, input().split())
+#リスト内包表記を使い n 行の入力を配列として受け取り配列 a に代入
+リスト内包表記とは [式 for 任意の変数名 in イテラブルオブジェクト] のように、
+リストの中に for 文が組み込まれているような書式
+#これだと入力された値がnの回数aに入れられる
+a = [input().split() for _ in range(n)]
+
+for i in range(n):
+    for j in range(k):
+    #もし最後の要素だったら、iの行の最後の要素を出力する　配列だから,1,k+1とはしない
+        if j == k - 1:
+            print(a[i][j])
+        else:
+            print(a[i][j], end=" ")
+
+
+n, k = map(int, input().split())
+nの行の回数文の入力を受け取る
+a = [input().split() for _ in range(n)]
+
+for i in range(n):
+    for j in range(k):
+    #もしiの行の現在のjが1だったら出力してbreak
+        if a[i][j] == "1":
+            print(i + 1, j + 1)
+            break
