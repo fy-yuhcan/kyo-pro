@@ -25,3 +25,47 @@ for i in range(n):
         if a[i][j] == "1":
             print(i + 1, j + 1)
             break
+
+#二次元配列の最大の要素を出力
+#n, k = map(int, input().split())
+リスト内包表記で列と行の全ての要素を受け取る
+これの説明
+input().split()で入力がリスト化され、それを整数にする　それを行の回数ループ
+a = [[int(i) for i in input().split()] for _ in range(n)]
+
+#初期値を設定　これが大事そう
+ans = 0
+for i in range(n):
+    for j in range(k):
+    #行の現在の列の要素が初期値より大きかったら
+        if a[i][j] > ans:
+        初期値にその要素を代入
+            ans = a[i][j]
+それを出力
+print(ans)
+
+
+#二重配列各行の和
+n, k = map(int, input().split())
+a = [[int(i) for i in input().split()] for _ in range(n)]
+
+for i in range(n):
+#ここで初期値を入れる
+ここで入れる理由は各行で足し算が終わったら初期化するから
+    s = 0
+    for j in range(k):
+        s += a[i][j]
+    print(s)
+
+#様々な長さの配列の和
+n = int(input())
+
+for _ in range(n):
+    k_a = [int(i) for i in input().split()]
+    #配列の最初の要素がその列の要素数
+    k = k_a[0]
+    a = k_a[1:]
+    s = 0
+    for i in range(k):
+        s += a[i]
+    print(s)
